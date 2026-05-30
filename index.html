@@ -1,0 +1,1699 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAMUZEN — Your Daily Reset Drink</title>
+  <meta name="description" content="Jamuzen adalah minuman herbal modern Indonesia untuk Gen Z. Reset your day, one cup at a time.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Melon+Pop&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #225B3B;
+      --green-light: #2d7a4f;
+      --green-dark: #1a3d2a;
+      --orange: #F1922A;
+      --orange-dark: #d98320;
+      --cream: #F5F0E8;
+      --cream-dark: #e8e2d9;
+      --purple: #B734D6;
+      --purple-light: #d050e6;
+      --dark-purple: #412F77;
+      --text: #1c1b1a;
+      --text-light: #5a5a5a;
+      --white: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.12);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+      --shadow-glow: 0 8px 40px rgba(241, 146, 42, 0.3);
+      --shadow-glow-green: 0 8px 40px rgba(34, 91, 59, 0.3);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 14px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(245, 240, 232, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(34, 91, 59, 0.08);
+      gap: 24px;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--green);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      background: rgba(34, 91, 59, 0.08);
+      color: var(--orange);
+    }
+
+    .nav-cta {
+      padding: 10px 20px;
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-cta:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+
+    .menu-toggle span {
+      width: 22px; height: 2px;
+      background: var(--green);
+      border-radius: 2px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 32px 80px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(183, 52, 214, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 30%, rgba(241, 146, 42, 0.12) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 80%, rgba(34, 91, 59, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-family: 'Melon Pop', cursive;
+      font-size: clamp(38px, 7vw, 72px);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--green);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 .accent {
+      color: var(--orange);
+    }
+
+    .hero-sub {
+      font-family: 'Quicksand', sans-serif;
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--text-light);
+      max-width: 580px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      padding: 16px 36px;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 50px rgba(241, 146, 42, 0.4);
+    }
+
+    .btn-secondary {
+      padding: 16px 36px;
+      background: var(--white);
+      color: var(--green);
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      border: 2px solid var(--green);
+    }
+
+    .btn-secondary:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 100px 32px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Melon Pop', cursive;
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 400;
+      color: var(--green);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      font-family: 'Quicksand', sans-serif;
+      color: var(--text-light);
+      font-size: 18px;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ===== WHY JAMUZEN ===== */
+    .why {
+      background: var(--white);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .why-card {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid transparent;
+    }
+
+    .why-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--orange);
+    }
+
+    .why-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .why-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .why-card:nth-child(1) .why-icon { background: rgba(183, 52, 214, 0.12); }
+    .why-card:nth-child(2) .why-icon { background: rgba(241, 146, 42, 0.12); }
+    .why-card:nth-child(3) .why-icon { background: rgba(34, 91, 59, 0.12); }
+    .why-card:nth-child(4) .why-icon { background: rgba(65, 47, 119, 0.12); }
+
+    .why-card h3 {
+      font-family: 'Melon Pop', cursive;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ===== PRODUCTS ===== */
+    .products {
+      background: var(--cream);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 56px;
+    }
+
+    .product-card {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+      cursor: pointer;
+      transition: all 0.4s;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+    }
+
+    .product-card.purple::before {
+      background: linear-gradient(180deg, rgba(183, 52, 214, 0.15) 0%, rgba(183, 52, 214, 0.85) 100%);
+    }
+
+    .product-card.orange::before {
+      background: linear-gradient(180deg, rgba(241, 146, 42, 0.15) 0%, rgba(241, 146, 42, 0.85) 100%);
+    }
+
+    .product-card.dark-purple::before {
+      background: linear-gradient(180deg, rgba(65, 47, 119, 0.15) 0%, rgba(65, 47, 119, 0.85) 100%);
+    }
+
+    .product-card img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      width: 160px;
+      height: auto;
+      max-height: 320px;
+      object-fit: contain;
+      z-index: 1;
+    }
+
+    .product-card .product-info {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .product-card .product-name {
+      font-family: 'Melon Pop', cursive;
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .product-card .product-subtitle {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 16px;
+    }
+
+    .product-card .product-price {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .product-card .btn-product {
+      padding: 12px 28px;
+      background: var(--white);
+      color: var(--green);
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .product-card .btn-product:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ===== PRICING ===== */
+    .pricing {
+      background: var(--white);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: var(--cream);
+      border-radius: 24px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+      position: relative;
+      border: 2px solid transparent;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .pricing-card.featured {
+      border: 3px solid var(--orange);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .pricing-card.premium {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: var(--white);
+    }
+
+    .pricing-card.premium .card-title,
+    .pricing-card.premium .card-subtitle,
+    .pricing-card.premium .price,
+    .pricing-card.premium .original-price {
+      color: var(--white);
+    }
+
+    .pricing-card.premium .original-price {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .pricing-badge-area {
+      text-align: center;
+      margin-bottom: 16px;
+      min-height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .badge-orange {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .badge-green {
+      background: var(--white);
+      color: var(--green);
+    }
+
+    .card-title {
+      font-family: 'Melon Pop', cursive;
+      font-size: 22px;
+      color: var(--green);
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    .card-subtitle {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 13px;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .pricing-card.premium .card-subtitle {
+      color: rgba(255,255,255,0.85);
+    }
+
+    .price-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .original-price {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 16px;
+      color: var(--text-light);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+
+    .savings-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(34, 91, 59, 0.1);
+      color: var(--green);
+      font-family: 'Quicksand', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 50px;
+      margin-top: 4px;
+    }
+
+    .pricing-card.premium .savings-badge {
+      background: rgba(255,255,255,0.2);
+      color: var(--white);
+    }
+
+    .features-list {
+      flex-grow: 1;
+      margin-bottom: 24px;
+    }
+
+    .features-list ul {
+      list-style: none;
+    }
+
+    .features-list li {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .pricing-card.premium .features-list li {
+      color: var(--white);
+      border-bottom-color: rgba(255,255,255,0.1);
+    }
+
+    .features-list li:last-child {
+      border-bottom: none;
+    }
+
+    .features-list .check {
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .pricing-card.premium .features-list .check {
+      color: var(--white);
+    }
+
+    .btn-order {
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--green);
+      color: var(--white);
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+      margin-top: auto;
+      text-decoration: none;
+      display: block;
+    }
+
+    .btn-order:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+    }
+
+    .pricing-card.featured .btn-order {
+      background: var(--orange);
+    }
+
+    .pricing-card.featured .btn-order:hover {
+      background: var(--orange-dark);
+    }
+
+    .pricing-card.premium .btn-order {
+      background: var(--white);
+      color: var(--green);
+    }
+
+    .pricing-card.premium .btn-order:hover {
+      background: var(--cream);
+    }
+
+    /* ===== COMPARISON TABLE ===== */
+    .comparison {
+      background: var(--cream);
+      padding: 80px 32px;
+    }
+
+    .comparison-table {
+      max-width: 900px;
+      margin: 48px auto 0;
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .comparison-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .comparison-table th {
+      background: var(--green);
+      color: var(--white);
+      padding: 16px 20px;
+      text-align: center;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .comparison-table th:first-child {
+      text-align: left;
+    }
+
+    .comparison-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid #e5e7eb;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .comparison-table td:first-child {
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .comparison-table tr:nth-child(even) td {
+      background: #f3f4f6;
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table .check-icon {
+      color: #22c55e;
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comparison-table .check-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .comparison-table .dash-icon {
+      color: #9ca3af;
+    }
+
+    /* ===== TRUST BADGES ===== */
+    .trust {
+      background: var(--white);
+      padding: 60px 32px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .trust-item {
+      text-align: center;
+      padding: 24px;
+    }
+
+    .trust-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      background: rgba(34, 91, 59, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .trust-item h4 {
+      font-family: 'Melon Pop', cursive;
+      font-size: 15px;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .trust-item p {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      background: var(--cream);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--orange) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: 'Melon Pop', cursive;
+      font-size: 18px;
+    }
+
+    .testimonial-name {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .testimonial-role {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .testimonial-text {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    .about-section {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 50%, var(--green-light) 100%);
+      color: var(--white);
+      padding: 100px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .about-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .about-content .section-label {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .about-title {
+      font-family: 'Melon Pop', cursive;
+      font-size: clamp(36px, 5vw, 52px);
+      color: var(--white);
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+
+    .about-title .highlight {
+      color: var(--orange);
+    }
+
+    .about-lead {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      opacity: 0.95;
+    }
+
+    .about-text {
+      font-size: 16px;
+      line-height: 1.8;
+      opacity: 0.85;
+      margin-bottom: 40px;
+    }
+
+    .about-values {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .about-value {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--white);
+      opacity: 0.9;
+    }
+
+    .about-value svg {
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+
+    /* ===== OFFICIAL ACCOUNTS ===== */
+    .official-accounts {
+      background: var(--cream);
+      padding: 60px 32px;
+      text-align: center;
+    }
+
+    .official-accounts h3 {
+      font-family: 'Melon Pop', cursive;
+      font-size: 20px;
+      color: var(--green);
+      margin-bottom: 24px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .social-icon-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      background: var(--white);
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .social-icon-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .social-icon-item.wa { color: #25D366; }
+    .social-icon-item.ig { color: #E4405F; }
+    .social-icon-item.tt { color: #000000; }
+
+    .social-icon-item svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .social-icon-item span {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      padding: 100px 32px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Melon Pop', cursive;
+      font-size: clamp(32px, 6vw, 56px);
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 18px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 36px;
+    }
+
+    .btn-cta {
+      padding: 18px 44px;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-cta:hover {
+      background: var(--orange-dark);
+      transform: translateY(-3px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--green);
+      color: var(--white);
+      padding: 60px 32px 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-brand p {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+
+    .footer-logo {
+      height: 48px;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-col h4 {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col a {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--orange);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .social-link:hover {
+      background: var(--orange);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+    }
+
+    .wa-float a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 28px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s;
+    }
+
+    .wa-float a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .products-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .why-grid,
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 12px 20px; }
+      section { padding: 70px 20px; }
+
+      .hero h1 { font-size: 36px; }
+      .hero-sub { font-size: 16px; }
+
+      .why-grid,
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-table {
+        font-size: 12px;
+      }
+
+      .comparison-table th, .comparison-table td {
+        padding: 10px 8px;
+      }
+
+      .social-icons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        padding: 20px;
+        border-bottom: 1px solid rgba(34, 91, 59, 0.08);
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .about-values {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .about-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+      }
+
+      .about-image {
+        order: -1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .about-image img {
+        max-width: 250px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .hero { padding: 100px 20px 60px; }
+    }
+
+    @media print {
+      .wa-float, nav, .menu-toggle { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#hero" class="nav-logo">
+      <img src="https://i.ibb.co.com/zWT2bH53/V1-Logo.png" alt="Jamuzen Logo">
+    </a>
+    <div class="nav-links">
+      <a href="#hero">Beranda</a>
+      <a href="#products">Products</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#about">Tentang Kami</a>
+      <a href="#contact">Contact</a>
+      <a href="https://jamuzenid.myr.id" class="nav-cta">Checkout / Order</a>
+    </div>
+    <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <h1>RESET YOUR DAY, <br><span class="accent">ONE CUP AT A TIME.</span></h1>
+    <p class="hero-sub">Jamu modern untuk membantu kamu membangun kebiasaan hidup yang lebih seimbang melalui ritual sederhana setiap hari.</p>
+    <div class="hero-ctas">
+      <a href="https://jamuzenid.myr.id" class="btn-primary">Pesan Sekarang</a>
+      <a href="#products" class="btn-secondary">Kenali Produk</a>
+    </div>
+  </section>
+
+  <!-- WHY JAMUZEN -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-label">Mengapa Memilih</div>
+        <h2 class="section-title">Kenapa Jamuzen?</h2>
+        <p class="section-sub mx-auto">Bangun kebiasaan hidup lebih baik dengan ritual sederhana setiap hari.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 3C9.373 3 4 8.373 4 15c0 4.243 2.084 7.982 5.29 10.232L6.5 29.5l4.29-1.732a12.04 12.04 0 007.21 2.732c6.627 0 12-5.373 12-12S22.627 3 16 3z" fill="#B734D6" opacity="0.2"></path>
+              <path d="M22.5 14.5c-.3-.15-1.8-.9-2.08-1-.28-.1-.48-.15-.68.15-.2.3-.78.97-.95 1.17-.17.2-.34.22-.64.07-.3-.15-1.26-.45-2.4-1.44-.88-.77-1.47-1.72-1.64-2.01-.17-.3 0-.46.13-.61.13-.15.28-.37.42-.56.14-.19.28-.24.42-.29.14-.05.3-.07.43-.07.13 0 .4.06.62.32.22.26.85.96.94 1.3.09.34.05.6-.1.84-.15.24-.3.35-.5.35zm-2.7 5.5h-.01a9.8 9.8 0 01-5.03-1.37l-.36-.21-3.74.98 1-3.65-.24-.37a9.8 9.8 0 01-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88z" fill="#B734D6"></path>
+            </svg>
+          </div>
+          <h3>Herbal Nusantara</h3>
+          <p>Diracik dari bahan pilihan Indonesia.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="14" fill="#F1922A" opacity="0.2"></circle>
+              <path d="M10 16a6 6 0 1112 0" stroke="#F1922A" stroke-width="2" stroke-linecap="round"></path>
+              <path d="M13 16l2 2 4-4" stroke="#F1922A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3>Mudah Dinikmati</h3>
+          <p>Praktis untuk rutinitas harian.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="14" fill="#225B3B" opacity="0.2"></circle>
+              <path d="M16 26c0-6-4-10-10-10 0 6 4 10 10 10z" fill="#225B3B" opacity="0.6"></path>
+              <path d="M16 26c0-6 4-10 10-10 0 6-4 10-10 10z" fill="#225B3B"></path>
+              <path d="M16 8v8M16 16l-3 3M16 16l3 3" stroke="#225B3B" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <h3>Daily Reset Ritual</h3>
+          <p>Bukan sekadar minuman, tetapi bagian dari gaya hidup sehat.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="14" fill="#412F77" opacity="0.2"></circle>
+              <circle cx="16" cy="14" r="4" stroke="#412F77" stroke-width="2"></circle>
+              <path d="M10 24c0-3.31 2.69-6 6-6s6 2.69 6 6" stroke="#412F77" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <h3>Untuk Gen Z</h3>
+          <p>Dirancang untuk gaya hidup modern yang serba cepat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-label">Lini Produk</div>
+        <h2 class="section-title">Produk Kami</h2>
+        <p class="section-sub mx-auto">Setiap varian memiliki karakter unik untuk menemani moment harianmu.</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-card purple">
+          <img src="https://i.ibb.co.com/gFztXMkv/Uwuhzen.png" alt="Uwuhzen">
+          <div class="product-info">
+            <h3 class="product-name">Uwuhzen</h3>
+            <p class="product-subtitle">Warm Your Balance</p>
+            <p class="product-price">Rp49.000</p>
+            <a href="https://jamuzenid.myr.id" class="btn-product" data-product="uwuhzen">Pesan Sekarang</a>
+          </div>
+        </div>
+        <div class="product-card orange">
+          <img src="https://i.ibb.co.com/HfY7J3vH/Secangzen.png" alt="Secangzen">
+          <div class="product-info">
+            <h3 class="product-name">Secangzen</h3>
+            <p class="product-subtitle">Feel Light Again</p>
+            <p class="product-price">Rp49.000</p>
+            <a href="https://jamuzenid.myr.id" class="btn-product" data-product="secangzen">Pesan Sekarang</a>
+          </div>
+        </div>
+        <div class="product-card dark-purple">
+          <img src="https://i.ibb.co.com/FkXS2Rcg/Telangzen.png" alt="Telangzen">
+          <div class="product-info">
+            <h3 class="product-name">Telangzen</h3>
+            <p class="product-subtitle">Slow Down Your Mind</p>
+            <p class="product-price">Rp49.000</p>
+            <a href="https://jamuzenid.myr.id" class="btn-product" data-product="telangzen">Pesan Sekarang</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-label">Pilih Paketmu</div>
+        <h2 class="section-title">Choose Your Reset Journey</h2>
+        <p class="section-sub mx-auto">Mulai dari satu langkah kecil atau jalani reset yang lebih lengkap bersama Jamuzen.</p>
+      </div>
+      <div class="pricing-grid" id="mayar-order">
+        <!-- STARTER PACK -->
+        <div class="pricing-card">
+          <div class="pricing-badge-area">
+            <span class="badge badge-orange">Starter</span>
+          </div>
+          <h3 class="card-title">Starter Pack</h3>
+          <p class="card-subtitle">For First-Time Resetters</p>
+          <div class="price-container">
+            <p class="price">Rp49.000</p>
+            <span class="savings-badge">Hemat Rp0</span>
+          </div>
+          <div class="features-list">
+            <ul>
+              <li><span class="check">✓</span> 1 pack</li>
+              <li><span class="check">✓</span> 8 Sachets</li>
+              <li><span class="check">✓</span> Lifestyle Tips PDF</li>
+            </ul>
+          </div>
+          <a href="https://jamuzenid.myr.id" class="btn-order">Pesan Sekarang</a>
+        </div>
+
+        <!-- RESET BOOST (FEATURED) -->
+        <div class="pricing-card featured">
+          <div class="pricing-badge-area">
+            <span class="badge badge-orange">Best Value</span>
+          </div>
+          <h3 class="card-title">Reset Boost</h3>
+          <p class="card-subtitle">For Building Better Habits</p>
+          <div class="price-container">
+            <p class="original-price">Rp98.000</p>
+            <p class="price">Rp89.000</p>
+            <span class="savings-badge">Hemat Rp9.000</span>
+          </div>
+          <div class="features-list">
+            <ul>
+              <li><span class="check">✓</span> 2 Pack Jamuzen (Kombinasi Apapun)</li>
+              <li><span class="check">✓</span> 7-Day Reset Guide</li>
+              <li><span class="check">✓</span> 50% Shipping Discount</li>
+            </ul>
+          </div>
+          <a href="https://jamuzenid.myr.id" class="btn-order">Pesan Sekarang</a>
+        </div>
+
+        <!-- 7-DAY RESET PROGRAM (PREMIUM) -->
+        <div class="pricing-card premium">
+          <div class="pricing-badge-area">
+            <span class="badge badge-green">Best Value</span>
+          </div>
+          <h3 class="card-title">7-Day Reset Program</h3>
+          <p class="card-subtitle">Premium Package</p>
+          <div class="price-container">
+            <p class="original-price">Rp147.000</p>
+            <p class="price">Rp129.000</p>
+            <span class="savings-badge">Hemat Rp18.000</span>
+          </div>
+          <div class="features-list">
+            <ul>
+              <li><span class="check">✓</span> 3 Pack Jamuzen (Kombinasi Apapun)</li>
+              <li><span class="check">✓</span> Full Access 7-Day Reset Guide</li>
+              <li><span class="check">✓</span> Free Shipping</li>
+            </ul>
+          </div>
+          <a href="https://jamuzenid.myr.id" class="btn-order">Pesan Sekarang</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="comparison" id="comparison">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-label">Bandingkan</div>
+        <h2 class="section-title">Package Comparison</h2>
+      </div>
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Starter Pack</th>
+              <th>Reset Boost</th>
+              <th>7-Day Reset</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 Pack Product</td>
+              <td><span class="check-icon"><svg viewBox="0 0 20 20" fill="#22c55e"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span></td>
+              <td><span class="dash-icon">—</span></td>
+              <td><span class="dash-icon">—</span></td>
+            </tr>
+            <tr>
+              <td>2 Pack Product</td>
+              <td><span class="dash-icon">—</span></td>
+              <td><span class="check-icon"><svg viewBox="0 0 20 20" fill="#22c55e"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span></td>
+              <td><span class="dash-icon">—</span></td>
+            </tr>
+            <tr>
+              <td>3 Pack Product</td>
+              <td><span class="dash-icon">—</span></td>
+              <td><span class="dash-icon">—</span></td>
+              <td><span class="check-icon"><svg viewBox="0 0 20 20" fill="#22c55e"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span></td>
+            </tr>
+            <tr>
+              <td>7-Day Reset Guide</td>
+              <td><span class="dash-icon">—</span></td>
+              <td><span class="check-icon"><svg viewBox="0 0 20 20" fill="#22c55e"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span></td>
+              <td><span class="check-icon"><svg viewBox="0 0 20 20" fill="#22c55e"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span></td>
+            </tr>
+            <tr>
+              <td>Free Shipping</td>
+              <td><span class="dash-icon">—</span></td>
+              <td><span class="dash-icon">—</span></td>
+              <td><span class="check-icon"><svg viewBox="0 0 20 20" fill="#22c55e"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BADGES -->
+  <section class="trust" id="trust">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">🌿</div>
+          <h4>100% Herbal</h4>
+          <p>Bahan alami pilihan</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">⚖️</div>
+          <h4>No Added Sugar</h4>
+          <p>Tanpa gula tambahan</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">♨️</div>
+          <h4>Easy to Prepare</h4>
+          <p>Seduh, minum, rasakan</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">📦</div>
+          <h4>Fresh Packaging</h4>
+          <p>Dikemas higienis</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-label">Testimoni</div>
+        <h2 class="section-title">Kata Mereka</h2>
+        <p class="section-sub mx-auto">Cerita dari mereka yang sudah mencoba Jamuzen.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <p class="testimonial-name">Sarah</p>
+              <p class="testimonial-role">Mahasiswa</p>
+            </div>
+          </div>
+          <p class="testimonial-text">"Rasanya enak dan praktis! Buat anak kos kayak aku, ini solusi banget buat minum jamu."</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">R</div>
+            <div>
+              <p class="testimonial-name">Rizky</p>
+              <p class="testimonial-role">Freelancer</p>
+            </div>
+          </div>
+          <p class="testimonial-text">"Uwuhzen favoritku! Hangat dan bikin fokus pas kerja. Recomended banget!"</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <p class="testimonial-name">Anisa</p>
+              <p class="testimonial-role"> Profesional</p>
+            </div>
+          </div>
+          <p class="testimonial-text">"Packagingnya aesthetic, rasanya juga otentik. Cocok buat cadeau atau koleksi."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section" id="about">
+    <div class="about-wrapper">
+      <div class="about-image">
+        <img src="https://i.ibb.co.com/TJd5MzH/mockup-01.png" alt="Jamuzen Product">
+      </div>
+      <div class="about-content">
+        <div class="section-label">Tentang Jamuzen</div>
+        <h2 class="about-title">Minuman Herbal <span class="highlight">Modern</span> untuk Gen Z</h2>
+        <p class="about-lead">Jamuzen hadir sebagai jawaban untuk anak muda Indonesia yang ingin hidup lebih sehat tapi tetap praktis.</p>
+        <p class="about-text">Kami memadukan tradisi ramuan herbal Nusantara dengan kemudahan consumo modern. Setiap produk kami dirancang untuk membantumu melakukan "daily reset" — memulai ulang kebiasaanmu dengan cara yang sederhana dan menyenangkan.</p>
+        <div class="about-values">
+          <div class="about-value">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#F1922A"/></svg>
+            100% Bahan Alami
+          </div>
+          <div class="about-value">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#F1922A"/></svg>
+            Produksi Higienis
+          </div>
+          <div class="about-value">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#F1922A"/></svg>
+            Ramah Lingkungan
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFICIAL ACCOUNTS -->
+  <section class="official-accounts" id="contact">
+    <div class="container">
+      <h3>Official Akun Jamuzen</h3>
+      <div class="social-icons">
+        <a href="https://wa.me/628131368820" class="social-icon-item wa" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>08131368820</span>
+        </a>
+        <a href="https://instagram.com/jamuzen.id" class="social-icon-item ig" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <span>@jamuzen.id</span>
+        </a>
+        <a href="https://www.tiktok.com/@jamuzen.id" class="social-icon-item tt" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+          <span>@jamuzen.id</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready To Reset Your Day?</h2>
+      <p>Mulai journey wellnessmu bersama Jamuzen hari ini.</p>
+      <a href="https://jamuzenid.myr.id" class="btn-cta">Order Jamuzen Today</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="https://i.ibb.co.com/zWT2bH53/V1-Logo.png" alt="Jamuzen" class="footer-logo">
+        <p>Your Daily Reset Drink. Jamuzen adalah minuman herbal modern Indonesia untuk Gen Z dan muda profesional.</p>
+        <div class="social-links">
+          <a href="https://wa.me/628131368820" class="social-link" aria-label="WhatsApp" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="https://instagram.com/jamuzen.id" class="social-link" aria-label="Instagram" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="#hero">Beranda</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="#about">Tentang Kami</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Official Kontak</h4>
+        <ul>
+          <li><a href="https://wa.me/628131368820" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com/jamuzen.id" target="_blank">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@jamuzen.id" target="_blank">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Jamuzen. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <div class="wa-float">
+    <a href="https://wa.me/628131368820?text=Halo%20Jamuzen%2C%20saya%20tertarik%20dengan%20produk%20Anda" aria-label="Chat WhatsApp" target="_blank">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+</body>
+</html>
