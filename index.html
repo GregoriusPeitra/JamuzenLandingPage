@@ -154,57 +154,23 @@
       font-weight: 700;
       line-height: 1.1;
       margin-bottom: 20px;
-      color: var(--green);
       position: relative;
       z-index: 1;
-      text-shadow:
-        0 4px 0 rgba(34, 91, 59, 0.2),
-        0 8px 0 rgba(34, 91, 59, 0.15),
-        0 12px 0 rgba(34, 91, 59, 0.1),
-        0 16px 30px rgba(34, 91, 59, 0.25);
-      animation: heroFloatColor 4s ease-in-out infinite;
+      background: linear-gradient(90deg, var(--green) 0%, var(--green-light) 50%, var(--orange) 100%);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientFlow 3s ease infinite;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
     }
 
-    @keyframes heroFloatColor {
-      0%, 100% {
-        transform: translateY(0px);
-        color: var(--green);
-        text-shadow:
-          0 4px 0 rgba(34, 91, 59, 0.2),
-          0 8px 0 rgba(34, 91, 59, 0.15),
-          0 12px 0 rgba(34, 91, 59, 0.1),
-          0 16px 30px rgba(34, 91, 59, 0.25);
-      }
-      25% {
-        transform: translateY(-8px);
-        color: var(--green-light);
-        text-shadow:
-          0 6px 0 rgba(34, 91, 59, 0.25),
-          0 12px 0 rgba(34, 91, 59, 0.2),
-          0 18px 0 rgba(34, 91, 59, 0.15),
-          0 24px 40px rgba(34, 91, 59, 0.3);
-      }
-      50% {
-        transform: translateY(-4px);
-        color: #2d9a5f;
-        text-shadow:
-          0 5px 0 rgba(45, 154, 95, 0.2),
-          0 10px 0 rgba(45, 154, 95, 0.15),
-          0 15px 0 rgba(45, 154, 95, 0.1),
-          0 20px 35px rgba(45, 154, 95, 0.25);
-      }
-      75% {
-        transform: translateY(-8px);
-        color: var(--green);
-        text-shadow:
-          0 6px 0 rgba(34, 91, 59, 0.25),
-          0 12px 0 rgba(34, 91, 59, 0.2),
-          0 18px 0 rgba(34, 91, 59, 0.15),
-          0 24px 40px rgba(34, 91, 59, 0.3);
-      }
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .hero h1 .accent {
@@ -1328,7 +1294,7 @@
   <!-- HERO SECTION -->
   <section class="hero" id="hero">
     <h1>RESET YOUR DAY, <br><span class="accent">ONE CUP AT A TIME.</span></h1>
-    <p class="hero-sub">Jamu modern untuk membantu kamu membangun kebiasaan hidup yang lebih seimbang melalui ritual sederhana setiap hari.</p>
+    <p class="hero-sub">Jamu modern untuk membantu kamu membangun<br>Kebiasaan hidup yang lebih seimbang melalui ritual sederhana setiap hari.</p>
     <div class="hero-ctas">
       <a href="https://jamuzenid.myr.id" class="btn-primary">Pesan Sekarang</a>
       <a href="#products" class="btn-secondary">Kenali Produk</a>
