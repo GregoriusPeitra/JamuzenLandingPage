@@ -7,7 +7,8 @@
   <meta name="description" content="Jamuzen adalah minuman herbal modern Indonesia untuk Gen Z. Reset your day, one cup at a time.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Melon+Pop&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -148,9 +149,9 @@
     }
 
     .hero h1 {
-      font-family: 'Melon Pop', cursive;
+      font-family: 'Fredoka', 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: clamp(42px, 8vw, 80px);
-      font-weight: 400;
+      font-weight: 700;
       line-height: 1.1;
       margin-bottom: 20px;
       color: var(--green);
@@ -161,20 +162,43 @@
         0 8px 0 rgba(34, 91, 59, 0.15),
         0 12px 0 rgba(34, 91, 59, 0.1),
         0 16px 30px rgba(34, 91, 59, 0.25);
-      animation: heroFloat 3s ease-in-out infinite;
+      animation: heroFloatColor 4s ease-in-out infinite;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
-    @keyframes heroFloat {
+    @keyframes heroFloatColor {
       0%, 100% {
         transform: translateY(0px);
+        color: var(--green);
         text-shadow:
           0 4px 0 rgba(34, 91, 59, 0.2),
           0 8px 0 rgba(34, 91, 59, 0.15),
           0 12px 0 rgba(34, 91, 59, 0.1),
           0 16px 30px rgba(34, 91, 59, 0.25);
       }
+      25% {
+        transform: translateY(-8px);
+        color: var(--green-light);
+        text-shadow:
+          0 6px 0 rgba(34, 91, 59, 0.25),
+          0 12px 0 rgba(34, 91, 59, 0.2),
+          0 18px 0 rgba(34, 91, 59, 0.15),
+          0 24px 40px rgba(34, 91, 59, 0.3);
+      }
       50% {
-        transform: translateY(-10px);
+        transform: translateY(-4px);
+        color: #2d9a5f;
+        text-shadow:
+          0 5px 0 rgba(45, 154, 95, 0.2),
+          0 10px 0 rgba(45, 154, 95, 0.15),
+          0 15px 0 rgba(45, 154, 95, 0.1),
+          0 20px 35px rgba(45, 154, 95, 0.25);
+      }
+      75% {
+        transform: translateY(-8px);
+        color: var(--green);
         text-shadow:
           0 6px 0 rgba(34, 91, 59, 0.25),
           0 12px 0 rgba(34, 91, 59, 0.2),
@@ -277,7 +301,7 @@
     }
 
     .section-title {
-      font-family: 'Melon Pop', cursive;
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
       font-size: clamp(28px, 5vw, 48px);
       font-weight: 400;
       color: var(--green);
@@ -341,7 +365,7 @@
     .why-card:nth-child(4) .why-icon { background: rgba(65, 47, 119, 0.12); }
 
     .why-card h3 {
-      font-family: 'Melon Pop', cursive;
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
       font-size: 16px;
       font-weight: 400;
       color: var(--green);
@@ -418,7 +442,7 @@
     }
 
     .product-card .product-name {
-      font-family: 'Melon Pop', cursive;
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
       font-size: 22px;
       color: var(--white);
       margin-bottom: 4px;
@@ -542,7 +566,7 @@
     }
 
     .card-title {
-      font-family: 'Melon Pop', cursive;
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
       font-size: 22px;
       color: var(--green);
       text-align: center;
@@ -780,7 +804,7 @@
     }
 
     .trust-item h4 {
-      font-family: 'Melon Pop', cursive;
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
       font-size: 15px;
       color: var(--green);
       margin-bottom: 4px;
@@ -833,7 +857,7 @@
       align-items: center;
       justify-content: center;
       color: var(--white);
-      font-family: 'Melon Pop', cursive;
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
       font-size: 18px;
     }
 
@@ -910,7 +934,7 @@
     }
 
     .about-title {
-      font-family: 'Melon Pop', cursive;
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
       font-size: clamp(36px, 5vw, 52px);
       color: var(--white);
       margin-bottom: 30px;
@@ -964,7 +988,7 @@
     }
 
     .official-accounts h3 {
-      font-family: 'Melon Pop', cursive;
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
       font-size: 20px;
       color: var(--green);
       margin-bottom: 24px;
@@ -1018,7 +1042,7 @@
     }
 
     .cta-section h2 {
-      font-family: 'Melon Pop', cursive;
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
       font-size: clamp(32px, 6vw, 56px);
       color: var(--white);
       margin-bottom: 16px;
