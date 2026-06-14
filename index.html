@@ -9,6 +9,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+  <!--
+  ╔═══════════════════════════════════════════════════════════════╗
+  ║  CAMPAIGN CONFIG — "Gerakan 1000 Gen Z Minum Jamu"            ║
+  ║  Ganti nilai CAMPAIGN_COUNT di bawah untuk update progress    ║
+  ╚═══════════════════════════════════════════════════════════════╝
+  -->
+  <script>
+    // 👈 GANTI ANGKA INI SETIAP KALI ADA PENJUALAN BARU
+    var CAMPAIGN_COUNT = 5;          // jumlah Gen Z yang sudah konsumsi
+    var CAMPAIGN_TARGET = 1000;     // target total
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -33,6 +46,140 @@
       --shadow-glow-green: 0 8px 40px rgba(34, 91, 59, 0.3);
     }
 
+    /* ===== CAMPAIGN BANNER ===== */
+    .campaign-banner {
+      background: linear-gradient(90deg, var(--green-dark) 0%, var(--green) 50%, var(--green-light) 100%);
+      color: var(--white);
+      padding: 14px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .campaign-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .campaign-banner .campaign-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      white-space: nowrap;
+    }
+
+    .campaign-banner .campaign-text-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+      overflow: hidden;
+    }
+
+    .campaign-banner .campaign-cta {
+      position: absolute;
+      right: 20px;
+      padding: 6px 16px;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Quicksand', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .campaign-banner .campaign-cta:hover {
+      background: var(--orange-dark);
+      transform: translateY(-1px);
+    }
+
+    .campaign-banner .campaign-emoji {
+      font-size: 22px;
+    }
+
+    .campaign-banner .campaign-text {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .campaign-banner .campaign-count {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--orange);
+    }
+
+    .campaign-banner .campaign-target {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--orange);
+    }
+
+    .campaign-progress-bar {
+      width: 120px;
+      height: 6px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .campaign-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--orange) 0%, #FFD700 100%);
+      border-radius: 10px;
+      transition: width 1s ease;
+      min-width: 4px;
+    }
+
+    .campaign-banner .campaign-cta {
+      padding: 6px 16px;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Quicksand', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .campaign-banner .campaign-cta:hover {
+      background: var(--orange-dark);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 600px) {
+      .campaign-banner .campaign-progress-bar { display: none; }
+      .campaign-banner .campaign-inner { gap: 8px; }
+      .campaign-banner .campaign-text-group { gap: 6px; }
+    }
+
+    @media (max-width: 480px) {
+      .campaign-banner .campaign-emoji { display: none; }
+      .campaign-banner .campaign-inner { font-size: 12px; }
+    }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -48,8 +195,8 @@
 
     /* ===== NAVIGATION ===== */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+      position: sticky;
+      top: 0;
       z-index: 1000;
       padding: 14px 32px;
       display: flex;
@@ -131,7 +278,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 120px 32px 80px;
+      padding: 140px 32px 80px;
       position: relative;
       overflow: hidden;
       background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
@@ -1264,7 +1411,7 @@
     @media (max-width: 480px) {
       .hero-ctas { flex-direction: column; align-items: center; }
       .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-      .hero { padding: 100px 20px 60px; }
+      .hero { padding: 120px 20px 60px; }
     }
 
     @media print {
@@ -1273,6 +1420,36 @@
   </style>
 </head>
 <body>
+
+  <!-- CAMPAIGN BANNER -->
+  <div class="campaign-banner" id="campaignBanner">
+    <div class="campaign-inner">
+      <div class="campaign-text-group">
+        <span class="campaign-emoji">🌿</span>
+        <span class="campaign-text">Gerakan 1000 Gen Z Minum Jamu —</span>
+        <span class="campaign-count" id="campaignCountDisplay">0</span>
+        <span class="campaign-text">dari</span>
+        <span class="campaign-target" id="campaignTargetDisplay">1000</span>
+        <span class="campaign-text">Gen Z Sudah Konsumsi Jamuzen!</span>
+        <div class="campaign-progress-bar">
+          <div class="campaign-progress-fill" id="campaignProgressFill"></div>
+        </div>
+      </div>
+      <a href="https://jamuzenid.myr.id" class="campaign-cta" target="_blank">Ikut Gerakan!</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var count = CAMPAIGN_COUNT;
+      var target = CAMPAIGN_TARGET;
+      var pct = Math.min((count / target) * 100, 100);
+      document.getElementById('campaignCountDisplay').textContent = count;
+      document.getElementById('campaignTargetDisplay').textContent = target.toLocaleString('id-ID');
+      document.getElementById('campaignProgressFill').style.width = pct + '%';
+    })();
+  </script>
+
   <!-- NAVIGATION -->
   <nav>
     <a href="#hero" class="nav-logo">
