@@ -1,0 +1,19 @@
+{
+  "name": "jamuzen-landing-page",
+  "version": "1.0.0",
+  "description": "Jamuzen Landing Page - Your Daily Reset Drink",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static HTML project - no build required'"
+  },
+  "keywords": [
+    "jamuzen",
+    "landing-page"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
