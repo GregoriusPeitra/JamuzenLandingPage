@@ -171,13 +171,33 @@
 
     @media (max-width: 600px) {
       .campaign-banner .campaign-progress-bar { display: none; }
-      .campaign-banner .campaign-inner { gap: 8px; }
-      .campaign-banner .campaign-text-group { gap: 6px; }
+      .campaign-banner .campaign-inner {
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-right: 80px;
+      }
+      .campaign-banner .campaign-text-group {
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .campaign-banner .campaign-cta {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 6px 12px;
+        font-size: 11px;
+      }
+      .campaign-banner .campaign-text { font-size: 12px; }
+      .campaign-banner .campaign-count,
+      .campaign-banner .campaign-target { font-size: 15px; }
     }
 
     @media (max-width: 480px) {
       .campaign-banner .campaign-emoji { display: none; }
-      .campaign-banner .campaign-inner { font-size: 12px; }
+      .campaign-banner .campaign-inner { font-size: 12px; padding-right: 70px; }
     }
 
     html { scroll-behavior: smooth; }
