@@ -172,32 +172,36 @@
     @media (max-width: 600px) {
       .campaign-banner .campaign-progress-bar { display: none; }
       .campaign-banner .campaign-inner {
-        gap: 8px;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-right: 80px;
-      }
-      .campaign-banner .campaign-text-group {
         gap: 6px;
         flex-wrap: wrap;
         justify-content: center;
+        white-space: normal;
+        padding-bottom: 4px;
+      }
+      .campaign-banner .campaign-text-group {
+        gap: 4px;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-basis: 100%;
       }
       .campaign-banner .campaign-cta {
-        position: absolute;
-        right: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 6px 12px;
-        font-size: 11px;
+        position: static;
+        padding: 6px 14px;
+        font-size: 12px;
+        flex-shrink: 0;
       }
       .campaign-banner .campaign-text { font-size: 12px; }
       .campaign-banner .campaign-count,
-      .campaign-banner .campaign-target { font-size: 15px; }
+      .campaign-banner .campaign-target { font-size: 16px; }
+      .campaign-banner .campaign-emoji { font-size: 18px; }
     }
 
     @media (max-width: 480px) {
       .campaign-banner .campaign-emoji { display: none; }
-      .campaign-banner .campaign-inner { font-size: 12px; padding-right: 70px; }
+      .campaign-banner .campaign-inner { gap: 4px; }
+      .campaign-banner .campaign-text { font-size: 11px; }
+      .campaign-banner .campaign-count,
+      .campaign-banner .campaign-target { font-size: 14px; }
     }
 
     html { scroll-behavior: smooth; }
