@@ -1451,6 +1451,274 @@
       .hero { padding: 120px 20px 60px; }
     }
 
+    /* ===== PRODUCTION SECTION ===== */
+    .production-section {
+      background: var(--white);
+      padding: 100px 32px;
+    }
+
+    .video-wrapper {
+      max-width: 900px;
+      margin: 48px auto 56px;
+    }
+
+    .video-placeholder {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 50%, var(--green-light) 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .video-placeholder:hover .play-button {
+      transform: scale(1.1);
+      background: var(--orange);
+    }
+
+    .video-placeholder-content {
+      text-align: center;
+      color: var(--white);
+      z-index: 1;
+    }
+
+    .play-button {
+      width: 80px;
+      height: 80px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      transition: all 0.3s;
+    }
+
+    .play-button svg {
+      width: 36px;
+      height: 36px;
+      margin-left: 4px;
+    }
+
+    .video-placeholder-text {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .video-placeholder-hint {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    .production-gallery {
+      margin-top: 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .gallery-item {
+      background: var(--cream);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 16px;
+    }
+
+    .gallery-caption .step-number {
+      display: inline-block;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .gallery-caption p {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 15px;
+      color: var(--green);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .gallery-caption .gallery-note {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 12px;
+      color: var(--text-light);
+      display: block;
+    }
+
+    .supplier-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-top: 40px;
+      border: 1px solid rgba(34, 91, 59, 0.1);
+    }
+
+    .supplier-badge {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
+
+    .supplier-badge svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .supplier-details {
+      flex: 1;
+    }
+
+    .supplier-label {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+
+    .supplier-name {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 16px;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .supplier-pirt {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 600px) {
+      .supplier-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+    }
+
+    .empowerment-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      background: linear-gradient(135deg, rgba(34, 91, 59, 0.08) 0%, rgba(241, 146, 42, 0.08) 100%);
+      border-radius: 20px;
+      padding: 32px;
+      margin-top: 56px;
+      border: 1px solid rgba(34, 91, 59, 0.12);
+    }
+
+    .empowerment-icon {
+      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
+
+    .empowerment-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .empowerment-text h4 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 20px;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .empowerment-text p {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 992px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .gallery-item img {
+        aspect-ratio: 1 / 1;
+      }
+
+      .empowerment-box {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .production-section {
+        padding: 70px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
     @media print {
       .wa-float, nav, .menu-toggle { display: none; }
     }
@@ -1843,6 +2111,159 @@
     </div>
   </section>
 
+  <!-- PRODUCTION DOCUMENTATION -->
+  <section class="production-section" id="production">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-label">Dokumentasi</div>
+        <h2 class="section-title">Proses Produksi Kami</h2>
+        <p class="section-sub mx-auto">Dari bahan pilihan langsung ke cangkirmu — seluruh proses dilakukan dengan penuh kesadaran, menggunakan bahan alami hasil bumi Indonesia dan melibatkan ibu-ibu lokal untuk memberdayakan potensi ekonomi daerah.</p>
+      </div>
+
+      <!-- VIDEO PLACEHOLDER -->
+      <div class="video-wrapper">
+        <div class="video-placeholder" id="videoPlaceholder">
+          <div class="video-placeholder-content">
+            <div class="play-button">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <p class="video-placeholder-text">Video Dokumentasi Produksi</p>
+            <p class="video-placeholder-hint">Ganti dengan embed YouTube</p>
+          </div>
+          <!--
+            ╔═══════════════════════════════════════════════════════════════╗
+            ║  GANTI VIDEO:                                                   ║
+            ║  1. Upload video ke YouTube (unlisted/draft)                  ║
+            ║  2. Copy YouTube video ID dari URL: youtube.com/watch?v=XXXXX  ║
+            ║  3. Ganti 'VIDEO_ID_PLACEHOLDER' di bawah dengan video ID     ║
+            ║  4. Hapus bagian comment ini                                  ║
+            ╚═══════════════════════════════════════════════════════════════╝
+            <iframe
+              width="100%" height="100%"
+              src="https://www.youtube.com/embed/VIDEO_ID_PLACEHOLDER"
+              title="Dokumentasi Produksi Jamuzen"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:16px;">
+            </iframe>
+          -->
+        </div>
+      </div>
+
+      <!-- PRODUCTION GALLERY -->
+      <div class="production-gallery">
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="/Produksi/1. Cuci Tangan Sebelum Bekerja.png" alt="Cuci Tangan Sebelum Bekerja">
+            <div class="gallery-caption">
+              <span class="step-number">Step 1</span>
+              <p>Cuci Tangan Sebelum Bekerja</p>
+              <span class="gallery-note">Kebersihan adalah prioritas utama</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/Produksi/2. Pencucian Bahan Baku.png" alt="Pencucian Bahan Baku">
+            <div class="gallery-caption">
+              <span class="step-number">Step 2</span>
+              <p>Pencucian Bahan Baku</p>
+              <span class="gallery-note">Bahan-bahan dipilih dari hasil bumi lokal</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/Produksi/3. Pemotongan Bahan Baku.png" alt="Pemotongan Bahan Baku">
+            <div class="gallery-caption">
+              <span class="step-number">Step 3</span>
+              <p>Pemotongan Bahan Baku</p>
+              <span class="gallery-note">Diproses dengan standar ketat</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/Produksi/4. Pengeringan di Ruang Tertutup.png" alt="Pengeringan di Ruang Tertutup">
+            <div class="gallery-caption">
+              <span class="step-number">Step 4</span>
+              <p>Pengeringan di Ruang Tertutup</p>
+              <span class="gallery-note">Menggunakan ruang higienis</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/Produksi/5. Simplisia Oven.png" alt="Simplisia Oven">
+            <div class="gallery-caption">
+              <span class="step-number">Step 5</span>
+              <p>Simplisia Oven</p>
+              <span class="gallery-note">Teknologi modern bantu jaga kualitas</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/Produksi/6. Penyimpanan Bahan Baku Siap Kemas.png" alt="Penyimpanan Bahan Baku Siap Kemas">
+            <div class="gallery-caption">
+              <span class="step-number">Step 6</span>
+              <p>Penyimpanan Siap Kemas</p>
+              <span class="gallery-note">Standar penyimpanan optimal</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/Produksi/7a. Pengemasan Wedang Rempah.png" alt="Pengemasan Wedang Rempah">
+            <div class="gallery-caption">
+              <span class="step-number">Step 7a</span>
+              <p>Pengemasan Wedang Rempah</p>
+              <span class="gallery-note">Ditangani ibu-ibu lokal terlatih</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/Produksi/7b. Pengemasan Wedang Rempah.png" alt="Pengemasan Wedang Rempah">
+            <div class="gallery-caption">
+              <span class="step-number">Step 7b</span>
+              <p>Pengemasan Wedang Rempah</p>
+              <span class="gallery-note">Setiap kemasan terjamin kebersihannya</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUPPLIER INFO -->
+      <div class="supplier-info">
+        <div class="supplier-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <div class="supplier-details">
+          <p class="supplier-label">Diproduksi Oleh</p>
+          <p class="supplier-name">Jamuning — Sidomulyo, Tancep, Ngawen, Gunung Kidul, D.I.Yogyakarta</p>
+          <p class="supplier-pirt">PIRT: ID 3411000417190622 &nbsp;|&nbsp; DINKES P-IRT 2103403011393-30</p>
+        </div>
+      </div>
+
+      <!-- EMPOWERMENT MESSAGE -->
+      <div class="empowerment-box">
+        <div class="empowerment-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="empowerment-text">
+          <h4>Memperdayakan Ibu-Ibu Lokal</h4>
+          <p>Setiap kemasan Jamuzen dikemas dengan penuh ketelatenan oleh ibu-ibu rumah tangga dari lingkungan sekitar. Mereka bukan sekadar pekerja — mereka adalah bagian dari keluarga Jamuzen yang turut membangun ekonomi keluarga dan daerah.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready To Reset Your Day?</h2>
+      <p>Mulai journey wellnessmu bersama Jamuzen hari ini.</p>
+      <a href="https://jamuzenid.myr.id" class="btn-cta" data-event="Lead" data-event-data='{"content_name": "Footer CTA"}'>Order Jamuzen Today</a>
+    </div>
+  </section>
+
   <!-- OFFICIAL ACCOUNTS -->
   <section class="official-accounts" id="contact">
     <div class="container">
@@ -1861,15 +2282,6 @@
           <span>@jamuzen.id</span>
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- CTA SECTION -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>Ready To Reset Your Day?</h2>
-      <p>Mulai journey wellnessmu bersama Jamuzen hari ini.</p>
-      <a href="https://jamuzenid.myr.id" class="btn-cta" data-event="Lead" data-event-data='{"content_name": "Footer CTA"}'>Order Jamuzen Today</a>
     </div>
   </section>
 
