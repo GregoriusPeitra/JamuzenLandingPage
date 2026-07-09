@@ -1462,60 +1462,22 @@
       margin: 48px auto 56px;
     }
 
-    .video-placeholder {
+    .video-container {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 50%, var(--green-light) 100%);
       border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
-      cursor: pointer;
-      transition: all 0.3s;
+      box-shadow: var(--shadow-lg);
     }
 
-    .video-placeholder:hover .play-button {
-      transform: scale(1.1);
-      background: var(--orange);
-    }
-
-    .video-placeholder-content {
-      text-align: center;
-      color: var(--white);
-      z-index: 1;
-    }
-
-    .play-button {
-      width: 80px;
-      height: 80px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      transition: all 0.3s;
-    }
-
-    .play-button svg {
-      width: 36px;
-      height: 36px;
-      margin-left: 4px;
-    }
-
-    .video-placeholder-text {
-      font-family: 'Fredoka', sans-serif;
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .video-placeholder-hint {
-      font-family: 'Quicksand', sans-serif;
-      font-size: 13px;
-      opacity: 0.7;
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     .production-gallery {
@@ -2121,36 +2083,17 @@
         <p class="section-sub mx-auto">Dari bahan pilihan langsung ke cangkirmu — seluruh proses dilakukan dengan penuh kesadaran, menggunakan bahan alami hasil bumi Indonesia dan melibatkan ibu-ibu lokal untuk memberdayakan potensi ekonomi daerah.</p>
       </div>
 
-      <!-- VIDEO PLACEHOLDER -->
+      <!-- VIDEO YOUTUBE -->
       <div class="video-wrapper">
-        <div class="video-placeholder" id="videoPlaceholder">
-          <div class="video-placeholder-content">
-            <div class="play-button">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </div>
-            <p class="video-placeholder-text">Video Dokumentasi Produksi</p>
-            <p class="video-placeholder-hint">Ganti dengan embed YouTube</p>
-          </div>
-          <!--
-            ╔═══════════════════════════════════════════════════════════════╗
-            ║  GANTI VIDEO:                                                   ║
-            ║  1. Upload video ke YouTube (unlisted/draft)                  ║
-            ║  2. Copy YouTube video ID dari URL: youtube.com/watch?v=XXXXX  ║
-            ║  3. Ganti 'VIDEO_ID_PLACEHOLDER' di bawah dengan video ID     ║
-            ║  4. Hapus bagian comment ini                                  ║
-            ╚═══════════════════════════════════════════════════════════════╝
-            <iframe
-              width="100%" height="100%"
-              src="https://www.youtube.com/embed/VIDEO_ID_PLACEHOLDER"
-              title="Dokumentasi Produksi Jamuzen"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:16px;">
-            </iframe>
-          -->
+        <div class="video-container">
+          <iframe
+            width="100%" height="100%"
+            src="https://www.youtube.com/embed/ryby654l8PI"
+            title="Dokumentasi Produksi Jamuzen"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
         </div>
       </div>
 
