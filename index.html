@@ -2733,8 +2733,8 @@
     }
 
     function scheduleNext() {
-      // Show every 18-28 seconds (random)
-      var delay = Math.floor(Math.random() * 10000) + 18000;
+      // Show every 8-15 seconds (random)
+      var delay = Math.floor(Math.random() * 7000) + 8000;
       clearInterval(spInterval);
       spInterval = setTimeout(function() {
         spIndex = (spIndex + 1) % SP_BUYERS.length;
@@ -2743,11 +2743,11 @@
       }, delay);
     }
 
-    // Start after 8 seconds
+    // Start after 5 seconds
     setTimeout(function() {
       showSocialProof();
       scheduleNext();
-    }, 8000);
+    }, 5000);
   </script>
 
 </body>
