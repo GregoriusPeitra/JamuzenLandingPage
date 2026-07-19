@@ -1701,6 +1701,98 @@
       }
     }
 
+    /* ===== SOCIAL PROOF NOTIFICATION ===== */
+    .social-proof-notif {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 998;
+      background: var(--white);
+      border-radius: 14px;
+      padding: 14px 18px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 340px;
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+      border-left: 4px solid var(--orange);
+    }
+
+    .social-proof-notif.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .social-proof-notif .notif-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: 'Fredoka', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .social-proof-notif .notif-body {
+      flex: 1;
+    }
+
+    .social-proof-notif .notif-text {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .social-proof-notif .notif-text strong {
+      color: var(--green);
+    }
+
+    .social-proof-notif .notif-time {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 11px;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    .social-proof-notif .notif-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-light);
+      font-size: 18px;
+      line-height: 1;
+      padding: 2px;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .social-proof-notif .notif-close:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 480px) {
+      .social-proof-notif {
+        left: 12px;
+        right: 12px;
+        bottom: 80px;
+        max-width: none;
+      }
+    }
+
     .empowerment-box {
       display: flex;
       align-items: flex-start;
@@ -2487,6 +2579,16 @@
     </a>
   </div>
 
+  <!-- SOCIAL PROOF NOTIFICATION -->
+  <div class="social-proof-notif" id="socialProofNotif">
+    <div class="notif-avatar" id="spAvatar"></div>
+    <div class="notif-body">
+      <p class="notif-text" id="spText"></p>
+      <p class="notif-time" id="spTime"></p>
+    </div>
+    <button class="notif-close" onclick="closeSocialProof()" aria-label="Close">×</button>
+  </div>
+
   <!-- FAQ ACCORDION SCRIPT -->
   <script>
     function toggleFaq(btn) {
@@ -2549,6 +2651,103 @@
         content_category: 'Conversion'
       });
     }
+
+    // ===== SOCIAL PROOF NOTIFICATION =====
+    // Data pembeli real — update sesuai data Anda
+    var SP_BUYERS = [
+      { name: "Maeti", payment: "Ewallet - Gopay", coupon: "DiskonOngkir10rb", price: 107500, product: "Reset Boost" },
+      { name: "Irma", payment: "Transfer VA - CIMB", coupon: "DiskonOngkir10rb", price: 87300, product: "Reset Boost" },
+      { name: "Aya", payment: "QRIS", coupon: "-", price: 58100, product: "Starter Pack" },
+      { name: "Agnes Tiomaria", payment: "QRIS", coupon: "DiskonOngkir20rb", price: 126300, product: "7-Day Reset Program" },
+      { name: "Viona Natalia", payment: "QRIS", coupon: "DiskonOngkir20rb", price: 126300, product: "7-Day Reset Program" },
+      { name: "CAHAYA Pratama", payment: "Transfer VA - CIMB", coupon: "-", price: 98200, product: "Reset Boost" },
+      { name: "Jarko", payment: "QRIS", coupon: "DiskonOngkir10rb", price: 88200, product: "Reset Boost" },
+      { name: "Delvita Santy", payment: "QRIS", coupon: "DiskonOngkir10rb", price: 97200, product: "Reset Boost" },
+      { name: "atin", payment: "QRIS", coupon: "-", price: 98200, product: "Reset Boost" },
+      { name: "Putridc", payment: "QRIS", coupon: "-", price: 57200, product: "Starter Pack" },
+      { name: "Ara.", payment: "QRIS", coupon: "-", price: 109500, product: "Reset Boost" },
+      { name: "CAHAYA Pratama", payment: "Transfer VA - CIMB", coupon: "-", price: 58200, product: "Starter Pack" },
+      { name: "Rama", payment: "QRIS", coupon: "-", price: 67100, product: "Starter Pack" },
+      { name: "Ulwan Aprilian", payment: "Transfer VA - BNI", coupon: "DiskonOngkir20rb", price: 118300, product: "7-Day Reset Program" },
+      { name: "Adriel Justin", payment: "QRIS", coupon: "-", price: 57200, product: "Starter Pack" }
+    ];
+
+    var spIndex = 0;
+    var spInterval;
+    var spTimeout;
+
+    function getRelativeTime() {
+      var minutes = Math.floor(Math.random() * 10) + 1;
+      if (minutes < 2) return "baru saja";
+      if (minutes < 60) return minutes + " menit lalu";
+      var hours = Math.floor(minutes / 60);
+      return hours + " jam lalu";
+    }
+
+    function showSocialProof() {
+      var buyer = SP_BUYERS[spIndex];
+      var initials = buyer.name.charAt(0).toUpperCase();
+      var packages = {
+        "Starter Pack": "Starter Pack",
+        "Reset Boost": "Reset Boost",
+        "7-Day Reset Program": "7-Day Reset"
+      };
+      var shortPkg = packages[buyer.product] || buyer.product;
+
+      // Format payment method (shorten for mobile)
+      var shortPayment = buyer.payment
+        .replace("Ewallet - ", "")
+        .replace("Transfer VA - ", "")
+        .replace("QRIS", "QRIS");
+
+      // Format coupon
+      var couponText = "";
+      if (buyer.coupon !== "-") {
+        var couponShort = buyer.coupon
+          .replace("DiskonOngkir10rb", "Diskon Ongkir Rp10.000")
+          .replace("DiskonOngkir20rb", "Diskon Ongkir Rp20.000");
+        couponText = " | " + couponShort;
+      }
+
+      // Format price
+      var priceFormatted = "Rp" + buyer.price.toLocaleString("id-ID");
+
+      document.getElementById('spAvatar').textContent = initials;
+      document.getElementById('spText').innerHTML =
+        "<strong>" + buyer.name + "</strong> baru saja membeli <strong>" + shortPkg + "</strong> via <strong>" + shortPayment + "</strong>" + couponText + " — " + priceFormatted + " 🎉";
+      document.getElementById('spTime').textContent = getRelativeTime();
+
+      var el = document.getElementById('socialProofNotif');
+      el.classList.add('show');
+
+      // Auto hide after 5 seconds (longer for more info)
+      clearTimeout(spTimeout);
+      spTimeout = setTimeout(function() {
+        closeSocialProof();
+      }, 5000);
+    }
+
+    function closeSocialProof() {
+      var el = document.getElementById('socialProofNotif');
+      el.classList.remove('show');
+    }
+
+    function scheduleNext() {
+      // Show every 18-28 seconds (random)
+      var delay = Math.floor(Math.random() * 10000) + 18000;
+      clearInterval(spInterval);
+      spInterval = setTimeout(function() {
+        spIndex = (spIndex + 1) % SP_BUYERS.length;
+        showSocialProof();
+        scheduleNext();
+      }, delay);
+    }
+
+    // Start after 8 seconds
+    setTimeout(function() {
+      showSocialProof();
+      scheduleNext();
+    }, 8000);
   </script>
 
 </body>
