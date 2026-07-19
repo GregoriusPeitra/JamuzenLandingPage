@@ -86,26 +86,25 @@
     .campaign-banner .campaign-inner {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: 16px;
       position: relative;
       z-index: 1;
       max-width: 1200px;
       margin: 0 auto;
-      white-space: nowrap;
+      flex-wrap: wrap;
     }
 
     .campaign-banner .campaign-text-group {
       display: flex;
       align-items: center;
       gap: 10px;
-      flex-wrap: nowrap;
-      overflow: hidden;
+      flex-wrap: wrap;
+      flex: 1;
+      min-width: 0;
     }
 
     .campaign-banner .campaign-cta {
-      position: absolute;
-      right: 20px;
       padding: 6px 16px;
       background: var(--orange);
       color: var(--white);
@@ -116,6 +115,13 @@
       text-decoration: none;
       transition: all 0.3s;
       white-space: nowrap;
+    }
+
+    .campaign-banner-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
     }
 
     .campaign-banner .campaign-cta:hover {
@@ -148,6 +154,34 @@
       color: var(--orange);
     }
 
+    .campaign-banner .campaign-discount {
+      background: var(--orange);
+      color: var(--white);
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .campaign-banner .campaign-countdown {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #FFD700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .campaign-banner .campaign-countdown-icon {
+      font-size: 14px;
+    }
+
     .campaign-progress-bar {
       width: 120px;
       height: 6px;
@@ -165,57 +199,42 @@
       min-width: 4px;
     }
 
-    .campaign-banner .campaign-cta {
-      padding: 6px 16px;
-      background: var(--orange);
-      color: var(--white);
-      font-family: 'Quicksand', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: all 0.3s;
-      white-space: nowrap;
-    }
-
-    .campaign-banner .campaign-cta:hover {
-      background: var(--orange-dark);
-      transform: translateY(-1px);
-    }
-
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .campaign-banner .campaign-progress-bar { display: none; }
       .campaign-banner .campaign-inner {
-        gap: 6px;
-        flex-wrap: wrap;
-        justify-content: center;
-        white-space: normal;
-        padding-bottom: 4px;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
       }
       .campaign-banner .campaign-text-group {
-        gap: 4px;
-        flex-wrap: wrap;
         justify-content: center;
         flex-basis: 100%;
       }
       .campaign-banner .campaign-cta {
-        position: static;
         padding: 6px 14px;
         font-size: 12px;
-        flex-shrink: 0;
       }
       .campaign-banner .campaign-text { font-size: 12px; }
       .campaign-banner .campaign-count,
       .campaign-banner .campaign-target { font-size: 16px; }
       .campaign-banner .campaign-emoji { font-size: 18px; }
+      .campaign-banner-right {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
     }
 
     @media (max-width: 480px) {
       .campaign-banner .campaign-emoji { display: none; }
-      .campaign-banner .campaign-inner { gap: 4px; }
+      .campaign-banner .campaign-inner { gap: 6px; }
       .campaign-banner .campaign-text { font-size: 11px; }
       .campaign-banner .campaign-count,
       .campaign-banner .campaign-target { font-size: 14px; }
+      .campaign-banner .campaign-discount,
+      .campaign-banner .campaign-countdown { display: none; }
+      .campaign-banner-right {
+        gap: 6px;
+      }
     }
 
     html { scroll-behavior: smooth; }
@@ -1892,7 +1911,14 @@
           <div class="campaign-progress-fill" id="campaignProgressFill"></div>
         </div>
       </div>
-      <a href="https://jamuzenid.myr.id" class="campaign-cta" target="_blank" data-event="Lead" data-event-data='{"content_name": "Campaign CTA"}'>Ikut Gerakan!</a>
+      <div class="campaign-banner-right">
+        <span class="campaign-discount">🔥 Diskon up to Rp20.000</span>
+        <span class="campaign-countdown">
+          <span class="campaign-countdown-icon">⏰</span>
+          <span id="countdownTimer">23:59:59</span>
+        </span>
+        <a href="https://jamuzenid.myr.id" class="campaign-cta" target="_blank" data-event="Lead" data-event-data='{"content_name": "Campaign CTA"}'>Ikut Gerakan!</a>
+      </div>
     </div>
   </div>
 
@@ -1904,6 +1930,33 @@
       document.getElementById('campaignCountDisplay').textContent = count;
       document.getElementById('campaignTargetDisplay').textContent = target.toLocaleString('id-ID');
       document.getElementById('campaignProgressFill').style.width = pct + '%';
+    })();
+
+    // ===== COUNTDOWN TIMER (Dummy 24h, auto-reset) =====
+    (function() {
+      var totalSeconds = 24 * 60 * 60; // 24 hours in seconds
+
+      function updateCountdown() {
+        var now = new Date();
+        var secondsSinceMidnight = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+        var remaining = totalSeconds - secondsSinceMidnight;
+
+        if (remaining <= 0) remaining = totalSeconds;
+
+        var hours = Math.floor(remaining / 3600);
+        var minutes = Math.floor((remaining % 3600) / 60);
+        var seconds = remaining % 60;
+
+        var display = String(hours).padStart(2, '0') + ':' +
+                      String(minutes).padStart(2, '0') + ':' +
+                      String(seconds).padStart(2, '0');
+
+        var el = document.getElementById('countdownTimer');
+        if (el) el.textContent = display;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
     })();
   </script>
 
